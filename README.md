@@ -1,3 +1,3 @@
-# Velcome to my art Page!
+#             Welcome to my art Page!
 #
 #
