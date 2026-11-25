@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 -50 100 100" role="img" aria-label="Vihaan Budankayala lotus mark">
+  <title>Vihaan Budankayala</title>
+  <circle r="48" fill="#0c0b10"/>
+  <circle r="46" fill="none" stroke="#f3efe6" stroke-opacity=".18" stroke-width="1.5"/>
+  <g>
+    <path id="p" d="M0 -6 C9 -14 9 -30 0 -40 C-9 -30 -9 -14 0 -6Z"/>
+    <use href="#p" fill="#3d6bff"/>
+    <use href="#p" fill="#ffb321" transform="rotate(45)"/>
+    <use href="#p" fill="#ff4d2e" transform="rotate(90)"/>
+    <use href="#p" fill="#8b5cff" transform="rotate(135)"/>
+    <use href="#p" fill="#3d6bff" transform="rotate(180)"/>
+    <use href="#p" fill="#ffb321" transform="rotate(225)"/>
+    <use href="#p" fill="#ff4d2e" transform="rotate(270)"/>
+    <use href="#p" fill="#8b5cff" transform="rotate(315)"/>
+  </g>
+  <circle r="5" fill="#f3efe6"/>
+</svg>
