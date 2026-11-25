@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vihaan Budankayala — Medical Illustration Progress</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --wall: #dedbd0;
+    --wall-2: #cfccbf;
+    --mat: #f4f2ea;
+    --ink: #201f1a;
+    --ink-soft: #5b594e;
+    --ink-faint: #8b8878;
+    --ochre: #a8721f;
+    --ochre-strong: #8f5f18;
+    --teal: #33564f;
+    --line: rgba(32,31,26,0.16);
+    --shadow: rgba(32,31,26,0.22);
+    color-scheme: light;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --wall: #1d1c18;
+      --wall-2: #262520;
+      --mat: #2a2924;
+      --ink: #eae6da;
+      --ink-soft: #b4b0a0;
+      --ink-faint: #7d7a6c;
+      --ochre: #d9a03f;
+      --ochre-strong: #e8b25a;
+      --teal: #7ba99e;
+      --line: rgba(234,230,218,0.14);
+      --shadow: rgba(0,0,0,0.5);
+      color-scheme: dark;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --wall: #1d1c18;
+    --wall-2: #262520;
+    --mat: #2a2924;
+    --ink: #eae6da;
+    --ink-soft: #b4b0a0;
+    --ink-faint: #7d7a6c;
+    --ochre: #d9a03f;
+    --ochre-strong: #e8b25a;
+    --teal: #7ba99e;
+    --line: rgba(234,230,218,0.14);
+    --shadow: rgba(0,0,0,0.5);
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+  }
+
+  body {
+    margin: 0;
+    background: var(--wall);
+    color: var(--ink);
+    font-family: "Newsreader", Georgia, "Times New Roman", serif;
+    font-size: 18px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 {
+    font-family: "Bricolage Grotesque", "Arial Narrow", sans-serif;
+    text-wrap: balance;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--ochre);
+    outline-offset: 3px;
+  }
+
+  .eyebrow {
+    font-family: "Space Mono", "Courier New", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  .wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 clamp(1.25rem, 4vw, 3rem);
+  }
+
+  /* ---------- nav ---------- */
+  .site-nav {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.1rem clamp(1.25rem, 4vw, 3rem);
+    background: color-mix(in srgb, var(--wall) 82%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .site-nav .mark {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+  }
+  .site-nav .mark span { color: var(--ochre); }
+  .nav-links {
+    display: flex;
+    gap: clamp(1rem, 3vw, 2.2rem);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .nav-links a {
+    font-family: "Space Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--ink-soft);
+    transition: color 0.2s ease;
+  }
+  .nav-links a:hover { color: var(--ochre); }
+  .nav-links a.active { color: var(--ochre); }
+
+  /* ---------- page header ---------- */
+  .page-header {
+    padding: clamp(3.5rem, 9vw, 6rem) 0 clamp(2rem, 5vw, 3rem);
+    border-bottom: 1px solid var(--line);
+  }
+  .page-header .eyebrow { margin-bottom: 1.2rem; }
+  .page-header h1 {
+    font-size: clamp(2.4rem, 6vw, 4.2rem);
+    font-weight: 800;
+    line-height: 1.02;
+  }
+  .page-header .lede {
+    margin-top: 1.4rem;
+    max-width: 38rem;
+    font-size: clamp(1rem, 1.4vw, 1.2rem);
+    font-style: italic;
+    color: var(--ink-soft);
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 1.8rem;
+    font-family: "Space Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--ink-faint);
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 0.2rem;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+  .back-link:hover { color: var(--ochre); border-color: var(--ochre); }
+
+  /* ---------- section headers ---------- */
+  section { padding: clamp(3rem, 7vw, 5rem) 0; }
+  .section-head {
+    margin-bottom: clamp(1.8rem, 4vw, 2.6rem);
+  }
+  .section-head h2 {
+    font-size: clamp(1.7rem, 3.4vw, 2.3rem);
+    font-weight: 700;
+  }
+  .section-head p {
+    margin: 0.6rem 0 0;
+    max-width: 30rem;
+    color: var(--ink-soft);
+    font-size: 0.98rem;
+  }
+
+  /* ---------- progress checklist ---------- */
+  .progress-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+  }
+  .progress-item {
+    background: var(--mat);
+    padding: clamp(1.4rem, 3vw, 2rem);
+    box-shadow: 0 18px 40px -22px var(--shadow);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.1rem;
+    align-items: start;
+  }
+  .progress-check {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: var(--teal);
+    color: var(--mat);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05rem;
+    flex-shrink: 0;
+  }
+  .progress-body .title {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+  }
+  .progress-body .status {
+    display: inline-block;
+    margin-top: 0.3rem;
+    font-family: "Space Mono", monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal);
+  }
+  .progress-body .desc {
+    margin: 0.7rem 0 0;
+    color: var(--ink-soft);
+    max-width: 42rem;
+  }
+
+  .resource-list {
+    list-style: none;
+    margin: 1rem 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+  .resource-list > li {
+    border-top: 1px solid var(--line);
+    padding-top: 0.9rem;
+  }
+  .resource-list .source {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.6rem;
+  }
+  .resource-list .source a {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-style: italic;
+    font-size: 1.02rem;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+  .resource-list .source a:hover { color: var(--ochre); border-color: var(--ochre); }
+  .resource-list .url {
+    font-family: "Space Mono", monospace;
+    font-size: 0.68rem;
+    color: var(--ink-faint);
+  }
+  .resource-list ul {
+    list-style: none;
+    margin: 0.5rem 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  .resource-list ul li {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    padding-left: 1.1rem;
+    position: relative;
+  }
+  .resource-list ul li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--ink-faint);
+  }
+
+  /* ---------- footer ---------- */
+  footer {
+    padding: 2.4rem clamp(1.25rem, 4vw, 3rem) 3rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    font-family: "Space Mono", monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    color: var(--ink-faint);
+  }
+
+  @media (max-width: 720px) {
+    .nav-links { gap: 1rem; }
+    .progress-item { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a class="mark" href="index.html">VIHAAN<span>·</span>BUDANKAYALA</a>
+  <ul class="nav-links">
+    <li><a href="index.html#works">Works</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="medical-illustration.html" class="active">Medical Illustration</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="page-header">
+  <div class="wrap">
+    <p class="eyebrow">Process notes</p>
+    <h1>Medical Illustration</h1>
+    <p class="lede">A working log of exploring medical illustration and bio-infographics alongside the studio practice — tracking what's researched, enrolled in, and learned as the discipline comes into focus.</p>
+    <a class="back-link" href="index.html">← Back to portfolio</a>
+  </div>
+</header>
+
+<main>
+  <section id="progress">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Progress</h2>
+        <p>Milestones in getting oriented to medical illustration as a discipline.</p>
+      </div>
+
+      <ul class="progress-list">
+
+        <li class="progress-item">
+          <span class="progress-check" aria-hidden="true">✓</span>
+          <div class="progress-body">
+            <p class="title">Research medical illustration</p>
+            <p class="status">Done</p>
+            <p class="desc">Watched 2–3 YouTube videos exploring the discipline — what medical illustrators do, the kinds of work it covers, and how it draws on both art and anatomy — to gauge interest before committing further time.</p>
+          </div>
+        </li>
+
+        <li class="progress-item">
+          <span class="progress-check" aria-hidden="true">✓</span>
+          <div class="progress-body">
+            <p class="title">Find educational resources</p>
+            <p class="status">Done</p>
+            <p class="desc">Identified and enrolled in free online courses covering medical illustration and bio-infographics.</p>
+
+            <ul class="resource-list">
+              <li>
+                <div class="source">
+                  <a href="https://www.udemy.com/" target="_blank" rel="noopener">Udemy</a>
+                  <span class="url">udemy.com</span>
+                </div>
+                <ul>
+                  <li>How to Create Your Scientific Illustration</li>
+                  <li>Visual Medical Communications</li>
+                </ul>
+              </li>
+              <li>
+                <div class="source">
+                  <a href="https://learntube.ai/learn/course/medical-illustration" target="_blank" rel="noopener">LearnTube</a>
+                  <span class="url">learntube.ai</span>
+                </div>
+                <ul>
+                  <li>Learn Medical Illustration Online</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span>© 2026 Vihaan Budankayala. All works reserved.</span>
+  <span>Medical illustration log — updated as progress continues.</span>
+</footer>
+
+</body>
+</html>
